@@ -22,5 +22,10 @@ post '/visit' do
 	@datetime = params[:datetime]
 	@barber = params[:barber]
 	@color = params[:color]
+
+	if @username == ''
+		@error = 'Введите имя'
+		return erb :visit
+	end
 	erb "Ok! Ваше имя:ß #{@username}, ваш номер телефона: #{@phone}, время записи: #{@datetime}, ваш мастер: #{@barber} , Цвет волос: #{@color}"
 end
