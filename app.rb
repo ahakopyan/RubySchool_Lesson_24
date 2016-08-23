@@ -25,7 +25,19 @@ post '/visit' do
 
 	if @username == ''
 		@error = 'Введите имя'
+	end
+
+	if @phone == ''
+		@error = 'Введите номер телефона'
+	end
+
+	if @datetime == ''
+		@error = 'Неправильная дата и время'
+	end
+
+	if @error != ''
 		return erb :visit
 	end
+
 	erb "Ok! Ваше имя:ß #{@username}, ваш номер телефона: #{@phone}, время записи: #{@datetime}, ваш мастер: #{@barber} , Цвет волос: #{@color}"
 end
